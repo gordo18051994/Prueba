@@ -1,7 +1,7 @@
 var sql = require("msnodesqlv8");
 
 var config =
-  "server=A1010;Database=proyecto;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
+  "server=DESKTOP-VFJDS7F;Database=proyecto;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
  new Promise((resolve, reject) => {
       sql.query(config, 'SELECT * FROM dbo.Usuario', function(error, results, fields) {
         if (error) {

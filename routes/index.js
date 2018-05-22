@@ -2,7 +2,7 @@ var express = require("express");
 var api = express.Router();
 var sql = require("msnodesqlv8");
 var config =
-  "server=A1010;Database=proyecto;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
+  "server=DESKTOP-VFJDS7F;Database=proyecto;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
   var localStorage = require("localStorage");
 
 /* GET users listing. */
