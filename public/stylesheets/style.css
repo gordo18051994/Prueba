@@ -1,0 +1,61 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('/images/pita-pit-gym-600-91035.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#formulario {
+  position: relative;
+  left: 30%;
+  width: 700px;
+  height: 700px;
+  text-align: center;
+  background-position: center center;
+  /* background: radial-gradient(ellipse, black, white); */
+  margin-top: 100px;
+  border: 4px solid black;
+}
+
+input {
+  margin-top: 25px;
+  border: none;
+}
+
+.boton {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #525252);
+  background-image: -moz-linear-gradient(top, #ffffff, #525252);
+  background-image: -ms-linear-gradient(top, #ffffff, #525252);
+  background-image: -o-linear-gradient(top, #ffffff, #525252);
+  background-image: linear-gradient(to bottom, #ffffff, #525252);
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  text-shadow: 4px 1px 3px #ffffff;
+  font-family: Courier New;
+  color: #000000;
+  font-size: 50px;
+  padding: 7px 21px 10px 20px;
+  text-decoration: none;
+  position: absolute;
+  bottom: 100px;
+  left: 40%;
+}
+
+.boton:hover {
+  background: #525252;
+  background-image: -webkit-linear-gradient(top, #525252, #ffffff);
+  background-image: -moz-linear-gradient(top, #525252, #ffffff);
+  background-image: -ms-linear-gradient(top, #525252, #ffffff);
+  background-image: -o-linear-gradient(top, #525252, #ffffff);
+  background-image: linear-gradient(to bottom, #525252, #ffffff);
+  text-decoration: none;
+}
+

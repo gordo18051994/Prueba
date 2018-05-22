@@ -1,0 +1,15 @@
+<h1>login</h1>
+<form action="/login" method="POST">
+    <label>Correo Electronico</label>
+    <input type="email" name="email" id="email" value="{{email}}" placeholder="correo@electronico.com">
+    <br>
+        <label>Password</label>
+    <input type="password" name="password" id="password" placeholder="contraseña">
+    <br>
+    <input type="submit" value="Iniciar sesion" name="Signin" id="Signin">
+</form>
+{{#if error}}
+    <div>
+        {{error}}
+    </div>
+{{/if}}
