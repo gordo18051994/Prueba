@@ -17,6 +17,21 @@ var config =
       });
     });
 
+    new Promise((resolve, reject) => {
+      sql.query(config, 'SELECT * FROM dbo.Gimnasio', function(error, results, fields) {
+        if (error) {
+          console.log("my error", error);
+          var results = {
+            error: error
+          };
+          reject(error);
+        } else {
+          console.log("Result GYM: ", JSON.stringify(results));
+          resolve(results);
+        }
+      });
+    });
+
 
 
 // const config = {

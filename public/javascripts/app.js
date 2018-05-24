@@ -27,6 +27,21 @@ var init = function() {
     });
   });
 
+  $("#registrar_empresa").on("click", function() {
+    var form_empresa = {
+      nombre: $("#nombre_empresa").val(),
+      telefono: $("#telefono_empresa").val(),
+      direccion: $("#direccion_empresa").val(),
+      email: $("#email_empresa").val(),
+      provincia: $("#provincia_empresa").val(),
+      localidad: $("#localidad_empresa").val(),
+      password: $("#password_empresa").val()
+    };
+    jQuery.post("/Empresa", form_empresa, function(results) {
+      console.log(" jquery", form_empresa);
+    });
+  });
+
 
   $("#Signin").on('click', function() {
     var email = $("#email").val();
