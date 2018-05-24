@@ -51,9 +51,9 @@ api.post("/login", function(req, res, next) {
   });
 });
 
-api.get("/Signup", function(req, res, next) {
-  res.render("registro", {});
-});
+// api.get("/Signup", function(req, res, next) {
+//   res.render("registro", {});
+// });
 
 api.post("/Signup", function(req, res, next) {
   var form = {
@@ -150,6 +150,11 @@ api.post("/Empresa", function(req, res, next) {
     }
   });
 });
+
+
+api.get("/p_empresa", function(req, res, next) {
+  res.render("panel_empresa", {});
+})
 
 api.get("/securepage", verificarSignin, function(req, res, next) {
   res.render("secure", {});
