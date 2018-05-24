@@ -58,10 +58,7 @@ input {
   background-image: linear-gradient(to bottom, #525252, #ffffff);
   text-decoration: none;
 }
-.container {
-  padding-top: 100px;
-  padding-left: 20%
-}
+
 .panel-login {
 border-color: #ccc;
 -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);

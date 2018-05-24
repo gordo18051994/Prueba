@@ -100,7 +100,7 @@ api.post("/Signup", function(req, res, next) {
       console.log(req.session.useremail);
       req.session.user = results.nombre;
       console.log("Result POST: ", results.email);
-      res.redirect("/securepage");
+      res.redirect("/");
     }
   });
 });
