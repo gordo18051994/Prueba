@@ -3,10 +3,11 @@ var api = express.Router();
 var sql = require("msnodesqlv8");
 var config =
   "server=A1010;Database=proyecto;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
+var controllers= require('../controllers')
 
 /* GET users listing. */
 function verificarSignin(req, res, next) {
-  debugger;
+  console.log(req.session.useremail)
   if (req.session.useremail && !req.session.useremail !== "") {
     next();
   } else res.redirect("/login");
@@ -20,36 +21,36 @@ api.get("/login", function(req, res, next) {
   res.render("login", {});
 });
 
-api.post("/login", function(req, res, next) {
-  var email = req.body.email;
-  var password = req.body.password;
-  var query =
-    "SELECT * FROM Usuario WHERE Email ='" +
-    email +
-    "'  AND Contraseña ='" +
-    password +
-    "'";
+ api.post("/login", controllers.login) 
+//  {
+//   var email = req.body.email;
+//   var password = req.body.password;
+//   var query =
+//     "SELECT * FROM Usuario WHERE Email ='" +
+//     email +
+//     "'  AND Contraseña ='" +
+//     password +
+//     "'";
 
-  sql.query(config, query, function(error, results, fields) {
-    if (email === results[0].Email &&
-      password === results[0].Contraseña) {
-        req.session.useremail = req.body.email;
-      // req.session.userId = results[0].id;
-      // req.session.user = results[0];
-      console.log(req.session.useremail)
-      console.log("Result Login: ", JSON.stringify(results[0].Email));
-      console.log(results[0].Nombre); 
-      console.log(results[0].id);
-      res.redirect("/securepage");
-      
-    } else {
-      var results = {
-        error: error
-      };
-      console.log(results.error);
-    }
-  });
-});
+//   sql.query(config, query, function(error, results, fields) {
+//     if (email === results[0].Email &&
+//       password === results[0].Contraseña) {
+//         req.session.useremail = req.body.email;
+//       // req.session.userId = results[0].id;
+//       // req.session.user = results[0];
+//       console.log(req.session.useremail)
+//       console.log("Result Login: ", JSON.stringify(results[0].Email));
+//       console.log(results[0].Nombre); 
+//       console.log(results[0].id);
+//       res.render('index')
+//     } else {
+//       var results = {
+//         error: error
+//       };
+//       console.log(results.error);
+//     }
+//   });
+// });
 
 // api.get("/Signup", function(req, res, next) {
 //   res.render("registro", {});
@@ -100,7 +101,7 @@ api.post("/Signup", function(req, res, next) {
       console.log(req.session.useremail);
       req.session.user = results.nombre;
       console.log("Result POST: ", results.email);
-      res.redirect("/");
+      res.redirect("/securepage");
     }
   });
 });
@@ -157,7 +158,8 @@ api.get("/p_empresa", function(req, res, next) {
 })
 
 api.get("/securepage", verificarSignin, function(req, res, next) {
-  res.render("secure", {});
+  console.log("entrando")
+  res.render("secure");
 });
 
 api.get("/Logout", function(req, res, next) {

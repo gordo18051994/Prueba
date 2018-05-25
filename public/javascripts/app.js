@@ -10,23 +10,23 @@ var init = function() {
   // 	// })
   
   
-  $("#registrar_usuario").on("click", function() {
-    var d_form = {
-      nombre: $("#nombre").val(),
-      apellido1: $("#apellido1").val(),
-      apellido2: $("#apellido2").val(),
-      telefono: $("#telefono").val(),
-      DNI: $("#DNI").val(),
-      direccion: $("#direccion").val(),
-      email: $("#email").val(),
-      provincia: $("#provincia").val(),
-      localidad: $("#localidad").val(),
-      password: $("#password").val()
-    };
-    jQuery.post("/Signup", d_form, function(results) {
-      console.log(" jquery", d_form);
-    });
-  });
+  // $("#registrar_usuario").on("click", function() {
+  //   var d_form = {
+  //     nombre: $("#nombre").val(),
+  //     apellido1: $("#apellido1").val(),
+  //     apellido2: $("#apellido2").val(),
+  //     telefono: $("#telefono").val(),
+  //     DNI: $("#DNI").val(),
+  //     direccion: $("#direccion").val(),
+  //     email: $("#email_reg").val(),
+  //     provincia: $("#provincia").val(),
+  //     localidad: $("#localidad").val(),
+  //     password: $("#password_reg").val()
+  //   };
+  //   jQuery.post("/Signup", d_form, function(results) {
+  //     console.log(" jquery", d_form);
+  //   });
+  // });
 
   $("#registrar_empresa").on("click", function() {
     var form_empresa = {
@@ -47,11 +47,20 @@ var init = function() {
   $("#Signin").on('click', function() {
     var email = $("#email").val();
     var password = $("#password").val();
-    $.post("/login", {email: email, password: password}, function(results){
-      console.log(results);
+    $.ajax({
+      method: 'POST',
+      url: '/login',
+      data: {email: email, password: password}
     })
+    // $.post("/login", {email: email, password: password}, function(results){
+    //   debugger
+    //   console.log(results);
+    //   debugger
+    // })
     
   })
+
+  
 
   $("#Logout").on('click', function() {
     $.get("/Logout", function(){
